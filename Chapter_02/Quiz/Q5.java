@@ -6,8 +6,8 @@ public class Q5{
 		Scanner input = new Scanner(System.in); 
 		
 		System.out.print("Enter the subtotal and a gratuity rate: ");
-		double subtotal = scan.nextDouble();
-		double gratuity = scan.nextDouble();
+		double subtotal = input.nextDouble();
+		double gratuity = input.nextDouble();
 		
 		 double TotalGratuity = subtotal * (gratuity / 100);
 		 double Total = subtotal + TotalGratuity;+
