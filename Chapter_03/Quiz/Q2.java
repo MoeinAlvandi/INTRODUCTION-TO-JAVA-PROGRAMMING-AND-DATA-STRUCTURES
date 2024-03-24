@@ -1,21 +1,23 @@
 import java.util.Scanner;
 public class Q2{
-	
+	/*
+	3.2 (Game: add three numbers) The program in Listing 3.1, AdditionQuiz.java, 
+		generates two integers and prompts the user to enter the sum of these two integers.
+		Revise the program to generate three single-digit integers and prompt the user to
+		enter the sum of these three integers.
+	*/
 	public static void main(String[] args){
 		
 		Scanner input = new Scanner(System.in);
-		final double PI = 3.14159;
-		
-		
-		System.out.print("Enter the radius and length of a cylinder: ");
-		double radius = input.nextDouble();
-		double area=radius * radius * PI;
-		
-		
-		double volume=area * length;
-		
-		System.out.print("The area is "+ area);
-		System.out.print("The volume is "+ volume);
+		int number1 = (int)(Math.random() * 10);
+		int number2 = (int)(Math.random() * 10);
+		int number3 = (int)(Math.random() * 10);
+
+		System.out.print("What is " + number1 + " + " + number2 + " + " + number3 +"? ");
+		int answer = input.nextInt();
+
+		System.out.println(number1 + " + " + number2 + " + " + number3 + " = " + answer + " is " +(number1 + number2+number3 == answer));
+
 		
 		
 	}
