@@ -1,43 +1,44 @@
 import java.util.Scanner;
 public class Q6{
-	
+	/*
+	*3.6 (Health application: BMI) Revise Listing 3.4, ComputeAndInterpretBMI.java, to
+		let the user enter weight, feet, and inches. For example, if a person is 5 feet and
+		10 inches, you will enter 5 for feet and 10 for inches. Here is a sample run:
+	*/
 	public static void main(String[] args){
 		
 		Scanner input = new Scanner(System.in); 
 		
-		System.out.print("Enter a number between 0 and 1000: ");
+		// Prompt the user to enter weight in pounds
+		System.out.print("Enter weight in pounds: ");
+		double weight = input.nextDouble();
 
-		int number =input.nextInt();
+		// Prompt the user to enter height in inches
+		System.out.print("Enter feet: ");
+		double feet = input.nextDouble();
+
+		System.out.print("Enter inches: ");
+		double inches = input.nextDouble();
 		
-		if(number>0 && number<1000)
-		{
-			int number3=number %10;//9
-			int number2=0;
-			int number1=0;
-			
-			if((number /10)>0)//93
-			{
-				number = number/10;//9
-				number2=number %10;//3
-				
-				if((number/10)>0)
-				{
-					
-					number=number/10;
-					
-					number1=number%10;
-					
-				}
-				
-			}
-			int result=number1+number2+number3;
-		System.out.print("The sum of the digits is " + result);
-			
-		}
+		double inchToFeet = inches / 12;
+		double feetToMetre = (feet + inchToFeet) / 3.281;
+		
+		final double KILOGRAMS_PER_POUND = 0.45359237; // Constant
+		double weightInKilograms = weight * KILOGRAMS_PER_POUND;
+		
+		double bmi = weightInKilograms /(feetToMetre * feetToMetre);
+
+		// Display result
+			System.out.println("BMI is " + bmi);
+		if (bmi < 18.5)
+			System.out.println("Underweight");
+		else if (bmi < 25)
+			System.out.println("Normal");
+		else if (bmi < 30)
+			System.out.println("Overweight");
 		else
-		{
-		System.out.print("Your Numbe Is Not Between 0 And 1000");
+			System.out.println("Obese");
 			
-		}
+		
 	}
 }

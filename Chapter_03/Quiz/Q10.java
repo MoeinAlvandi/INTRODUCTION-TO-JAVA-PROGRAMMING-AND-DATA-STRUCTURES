@@ -1,28 +1,34 @@
 import java.util.Scanner;
 public class Q10{
-	
+	/*
+	3.10 (Game: addition quiz) Listing 3.3, SubtractionQuiz.java, randomly generates a
+		subtraction question. Revise the program to randomly generate an addition question with two integers less than 100.
+	*/
 	public static void main(String[] args){
 		
 		Scanner input = new Scanner(System.in); 
 		
-		System.out.print("Enter the amount of water in kilograms: ");
+				// 1. Generate two random single-digit integers
+		int number1 = (int)(Math.random() * 100);
+		int number2 = (int)(Math.random() * 100);
+		// 2. If number1 < number2, swap number1 with number2
+		if (number1 < number2) {
+			int temp = number1;
+			number1 = number2;
+			number2 = temp;
 
-		double m = input.nextDouble();
-		
-		System.out.print("Enter the initial temperature : ");
+		}
 
-		double it = input.nextDouble();		
+				// 3. Prompt the student to answer "What is number1 – number2?"
+		System.out.print("What is " + number1 + " - " + number2 + "? ");
+		int answer = input.nextInt();
 		
-		System.out.print("Enter the final temperature: ");
-
-		double ft = input.nextDouble();
-		
-		
-		double result=ft-it;
-		result=result*4184;
-		result=result*m;
-		
-		System.out.print("The energy needed is " + result);
-		
+		// 4. Grade the answer and display the result
+		if (number1 - number2 == answer)
+			System.out.println("You are correct!");
+		else {
+			System.out.println("Your answer is wrong.");
+			System.out.println(number1 + " - " + number2 +" should be " + (number1 - number2));
+		} 
 	}
 }
